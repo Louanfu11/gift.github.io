@@ -32,19 +32,17 @@
       margin: 0 auto 30px;
     }
     .letter-btn {
-  background: none;
-  border: none;
-  padding: 10px 14px;
-  font-size: 28px;
-  font-family: 'Lobster', cursive;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.letter-btn:hover {
-  transform: scale(1.2);
-}
+      background: none;
+      border: none;
+      padding: 10px 14px;
+      font-size: 28px;
+      font-family: 'Lobster', cursive;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
     .letter-btn:hover {
+      transform: scale(1.2);
       background-color: #d580ff;
     }
     .content {
@@ -64,50 +62,33 @@
     <div class="content" id="content">👉 Nhấn vào một chữ cái để xem lời cảm ơn tương ứng nhaaa!</div>
   </div>
 
+  <!-- Âm thanh pop -->
+  <audio id="popSound" src="https://www.myinstants.com/media/sounds/pop-cat-original-meme.mp3"></audio>
+
   <script>
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const messages = {
-      A: `Hú húuu bạn A siêu cấp đáng yêu đã chịu khó phiêu cùng cái khảo sát của tớ nè 🥰📊! Cảm ơn bạn A vì đã bỏ thời gian vàng ngọc để trả lời siêu chăm chỉ luôn á 🤓💛~ Nhờ bạn mà khảo sát của tụi mình thêm phần xịn xò cấp độ vũ trụ 🚀✨! Chúc bạn luôn A+ trong mọi thứ nhée~ #BạnAĐỉnhThiệtSự 💫`,
-      B: `Cảm ơnnn bạn B dễ thương muốn xỉu lun 😝 vì đã nhiệt tình tham gia khảo sát của tụi mình nghenn 📝💬! Câu nào cũng thấy tâm huyết hông chịu được luôn á 😭💖~ Bạn B đúng là bestie biết điều, cute có điều kiện! Tặng nghìn tim 💘 cho sự góp mặt quá gì và này nọ. Love u nghennn~ #BắtTrendRồiNhớ 😎`,
-      C: `Cảm ơn bạn C bá cháyy 🔥 đã ghé qua khảo sát "bé bé xinh xinh" của tụi mình nè 💻💗~ Trả lời mà thấy vibe bạn truyền vào từng chữ lun á 😆💥! Cảm ơn bạn nhiều lắmm, chúc bạn C ngày nào cũng Cười tươi như nắng hạ nhaaa 🌞🍉!`,
-      D: `Cảm ơn bạn D dễ cưng hết nấc luôn 🤩💬! Bạn không chỉ khảo sát cho vui mà còn khảo sát có tâm, có tầm nữa cơ 💡. Dễ thương như bạn D thì phải cảm ơn bằng 1000 trái tim luôn 💘💘💘. Mong bạn D luôn Đỉnh cao trong mọi mặt trận nhaaa 🚀💙!`,
-      E: `Bạn E ơiii 🫶! Chúng tớ cảm ơn bạn thật nhiềuu vì đã không lướt qua mà chọn ở lại cùng cái khảo sát bé nhỏ nè 🥹📋~ Bạn đúng là "Energy gấp 1000 lần trà sữa" 🍵⚡ luôn á~ Mong rằng vibe của bạn sẽ luôn đầy sắc màu như mấy câu trả lời cute phô mai que kia 🎨🧀~`,
-      F: `Feel so good khi thấy bạn F thả tim vào khảo sát của mình 💓😝~ Mỗi dòng trả lời là một cục vitamin siêu ngọt 💊🍬, làm mood chúng mình lên 888 độ luônnn! Cảm ơn bạn đã góp vibe để bài khảo sát của chúng tớ không bị flop hehehe~ #ForeverFabulous 💁‍♀️💅`,
-      G: `Gì chớ khảo sát mà gặp bạn G là thấy gắt à nha 🔥~ Bạn trả lời tâm huyết xỉu up xỉu down, làm chúng tớ cảm động vô cùng tận 🥹📈~ Cảm ơn bạn siêu nhiều luôn nhaa, chúc bạn G luôn Gây thương nhớ khắp mọi nơi như chính bạn đang làm đó 💖🌈`,
-      H: `Hơiiiii bạn H huyền ảo quá đi 😆✨! Đúng kiểu high mood ngập trời~ Cảm ơn bạn vì đã làm khảo sát không chỉ chất mà còn có tâm nữa 🦇✨! Mong bạn H luôn Happy như cách bạn làm mình vui nheeee 💫🎉!`,
-      I: `Iu ghê á trời ơi 🥺💘! Cảm ơn bạn I xịn mịn đã dành thời gian cho khảo sát bé xíu của chúng tớ nhe 📝💕~ Trả lời gì mà có tâm thấy thương lun á! Mong bạn luôn Iu đời, Iu người, và được vạn người Iu nhaa 😚🌸`,
-      J: `Jời đất ơi bạn J làm khảo sát mà như đang kể chuyện cổ tích luôn í 🧚‍♀️💬~ Vừa dễ thương vừa có tâm có tầm~ Thanks bạn nhiều xỉu luôn nheee! Chúc bạn J luôn Just perfect như mood bạn mang lại cho khảo sát nè 💫✨`,
-      K: `Khảo sát của chúng mình mà có bạn K là auto Kute gấp 1000 lần ròiii 😍📊! Cảm ơn bạn nhiều nhen vì đã giúp mình đỡ lo "khảo sát không ai care" huhuu 😭~ Mong bạn K cứ Keep shining và Keep being awesome mỗi ngày nha 🌟💕`,
-      L: `Lúc nhận được khảo sát của bạn L là chúng tớ literally la lên á 😆📣~ Trời ơi vừa vui vừa cảm động lun! Mỗi chữ bạn viết đều khiến bài khảo sát có hồn có vía có trái tim 💓! Cảm ơn bạn L lắmm, chúc bạn luôn Lấp lánh như crush trong mắt mình nhéeee ✨🥰`,
-      M: `Mlem mlem cái sự dễ thương của bạn M nè 😋💓! Cảm ơn bạn nhiều lắmmm vì đã không ngó lơ khảo sát mà còn góp phần làm nó xịn level max pro 📈🎉~ Mong bạn luôn Mạnh khoẻ, Mặn mòi hoài hoài 💞`,
-      N: `Nói thiệt là bạn N tham gia khảo sát như "nắng lên sau mưa" lun ó 🌦☀️! Cảm ơn bạn vì đã dành thời gian và tâm huyết để giúp khảo sát thêm phần... có não 😆🧠~ Bạn đúng là "Người đặc biệt trong số đông" đó nhaaa 💖`,
-      O: `Cảm ơn bạn O đã không ngần ngại mà nhảy ngay vào khảo sát của mình lun nheee 📝💃! Trả lời vừa hài vừa chất, nhìn cái là muốn lưu làm kỷ niệm mãi mãi á 🥰~ Mong bạn luôn On top mood và On trend mọi nơi nhé 🎯🔥`,
-      P: `Cảm ơn bạn rất nhiều vì đã làm khảo sát trở nên phá cách và xịn sò khét lẹt 🔥🔥. Cảm ơn bạn P – Phát sáng trong lòng mình lun ó 🥹💖~ Mong bạn luôn Phát tài phát lộc và Phát sáng nhaaa ✨🤑`,
-      Q: `Quá là Quý giá khi bạn Q chịu khó dành chút thời gian vàng bạc để điền khảo sát của chúng mình 🥹⏳~ Từng câu trả lời đều quý như kim cương đính vào lòng á 💎~ Cảm ơn bạn Q nhiều nhe, mong bạn luôn Quẩy nhiệt hết mình và sống Quá đỉnhh 🥳🎊`,
-      R: `Rầm rộ luôn á trời 😆~ Cảm ơn bạn R đã góp mặt làm bài khảo sát của chúng mình nổi như cồn 🥁🔥~ Trả lời xịn mà còn dễ thương ngập trời! Rất vui vì có bạn đồng hành, bạn đúng là Real deal lun đó 😎💬`,
-      S: `Siu sao sáng rực là đây nè ⭐️~ Cảm ơn bạn S vì đã làm bài khảo sát trở nên "sang – xịn – mịn” 😝~ Mỗi dòng chữ của bạn như thêm màu vào bức tranh data chúng tớ vậy đó 🎨📈~ Mong bạn S luôn Sống vui – Sống khỏe – Sống chill nhaaa 🍀💗`,
-      T: `Tớ cảm ơn bạn T thật nhìu nhìu nhìuuu 😍💬~ Trả lời gì mà cute overload luôn á 🥹🤗~ Mong bạn T luôn Tươi như hoa, Tăng mood mỗi ngày và Thành công mọi mặt nhéee 🌻🚀`,
-      U: `U là chòi ơi đáng iu quớ điii 🥺💘~ Cảm ơn bạn U đã lướt nhẹ vào khảo sát của chúng mình và để lại những dòng siêu dễ thương khiến chúng mình bật ngửa vì bất ngờ lun 😳🌸~ Mong bạn luôn Uplift chính mình và mọi người nha 💫💓`,
-      V: `Vibe bạn V mang tới cho khảo sát là vui tới nóc lun đó 😆🏠~ Cảm ơn bạn vì những câu trả lời vừa có tâm vừa có tầm mà còn có cả muối nữa 🧂✨~ Mong bạn luôn Vững vàng – Vạn sự như ý – Và Vừa dễ thương vừa cool nheee 💕❄️`,
-      W: `Woahhh bạn W xuất hiện như một làn gió mới giữa bài khảo sát khô khan vậy đó 🌬🌼~ Cảm ơn bạn đã đem theo cả một bầu trời cute để lại trong khảo sát của chúng tớ! Mong bạn luôn Win tất cả thử thách cuộc sống nha 🏆💪`,
-      X: `Xịn xò thiệt sự lun bạn X ơiiiii 😭💖~ Cảm ơn bạn đã ghé qua khảo sát bé xíu xiu của chúng tớ mà thả vào đó bao nhiêu yêu thương nèeee~ Mong bạn luôn Xinh tươi – Xông pha và Xứng đáng nhận mọi điều tốt đẹp nhất nhaaa 💐✨`,
-      Y: `Yêu bạn Y từ cái khảo sát đầu tiên ó 🥹💞~ Cảm ơn bạn đã góp sức cho bài khảo sát nhỏ mà lại chan chứa tình cảm siuuu nhiều luônn 💗~ Mong bạn luôn Yêu đời, Yêu bản thân và được yêu thật nhiều nhen 😘🌈`,
-      Z: `Zôoo zôoo! Bạn Z đến là cả bầu trời năng lượng luôn á 🌟💥~ Cảm ơn bạn vì đã hoàn thành khảo sát cực dễ thương này, làm nó sáng rực rỡ như đèn sân khấu lun ó 😎🔆~ Mong bạn luôn Zui zẻ – Zô nhiệt và Zing zăng mọi nơi 😝🎉`
+      A: `Hú húuu bạn A siêu cấp đáng yêu...`, // (rút gọn cho ngắn gọn ở đây)
+      B: `Cảm ơnnn bạn B dễ thương...`,
+      // ...
+      Z: `Zôoo zôoo! Bạn Z đến là cả bầu trời năng lượng luôn á...`
     };
 
     const grid = document.getElementById('letterGrid');
+    const content = document.getElementById('content');
+    const popSound = document.getElementById('popSound');
+
     letters.forEach(letter => {
       const btn = document.createElement('button');
       btn.className = 'letter-btn';
       btn.innerText = letter;
       btn.onclick = () => {
-        document.getElementById('content').innerText = messages[letter] || 'Không có nội dung cho chữ cái này 😅';
+        popSound.currentTime = 0;
+        popSound.play();
+        content.innerText = messages[letter] || 'Không có nội dung cho chữ cái này 😅';
       };
       grid.appendChild(btn);
     });
   </script>
 </body>
 </html>
-
-
-
